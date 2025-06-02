@@ -24,6 +24,8 @@ def train(dataset, args):
         output_dim=dataset.num_classes,
         args=args
     )
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    model = model.to(device)
 
     # Setup optimizer
     scheduler, opt = build_optimizer(args, model.parameters())
@@ -59,7 +61,7 @@ def train(dataset, args):
         losses.append(total_loss)
 
         # Evaluate periodically
-        if epoch % args.every_eval == 0:
+        if epoch % args.eval_every == 0:
             test_acc = test(loader, model)
             test_accs.append(test_acc)
 
@@ -96,8 +98,13 @@ def main():
         setattr(args, key, val)
 
     # Make sure we have some necessary paramters
-    if not getattr(args, 'every_eval', False):
-        setattr(args, 'every_eval', 10)
+    required_params = ['model_type', 'dataset', 'hidden_dim', 'num_layers']
+    for param in required_params:
+        if not hasattr(args, param):
+            raise ValueError(f"Missing required parameter: {param}")
+    if not getattr(args, 'eval_every', False):
+        setattr(args, 'eval_every', 10)
+
 
     # Load the Planetoid dataset (e.g. Cora) into memory
     # The root directory is ./data/<dataset> by default

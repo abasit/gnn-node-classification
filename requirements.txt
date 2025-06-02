@@ -1,0 +1,10 @@
+# Core dependencies
+torch>=2.0.0
+torch-geometric>=2.3.0
+torch-scatter
+torch-sparse
+numpy>=1.21.0
+matplotlib>=3.5.0
+tqdm>=4.65.0
+pandas>=1.5.0
+pyyaml>=6.0

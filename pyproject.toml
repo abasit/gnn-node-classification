@@ -54,9 +54,10 @@ notebook = [
 train-gnn = "src.train:main"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/gnn-node-classification"
-Repository = "https://github.com/yourusername/gnn-node-classification"
-Issues = "https://github.com/yourusername/gnn-node-classification/issues"
+Homepage = "https://github.com/abasit/gnn-node-classification"
+Repository = "https://github.com/abasit/gnn-node-classification"
+Issues = "https://github.com/abasit/gnn-node-classification/issues"
+
 
 [tool.setuptools]
 packages = ["src", "src.models", "src.utils"]
