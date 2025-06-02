@@ -1,0 +1,82 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gnn-node-classification"
+version = "0.1.0"
+description = "Graph Neural Networks (GraphSAGE and GAT) for node classification"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Abdul Basit", email = "basit.abdul@gmail.com"},
+]
+keywords = ["graph-neural-networks", "deep-learning", "pytorch", "node-classification"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "torch>=2.0.0",
+    "torch-geometric>=2.3.0",
+    "torch-scatter",
+    "torch-sparse",
+    "numpy>=1.21.0",
+    "matplotlib>=3.5.0",
+    "tqdm>=4.65.0",
+    "pandas>=1.5.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+]
+notebook = [
+    "jupyter>=1.0.0",
+    "ipykernel>=6.0.0",
+]
+
+[project.scripts]
+train-gnn = "src.train:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/gnn-node-classification"
+Repository = "https://github.com/yourusername/gnn-node-classification"
+Issues = "https://github.com/yourusername/gnn-node-classification/issues"
+
+[tool.setuptools]
+packages = ["src", "src.models", "src.utils"]
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"

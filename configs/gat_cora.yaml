@@ -1,0 +1,14 @@
+# GAT configuration for Cora dataset
+model_type: GAT
+dataset: Cora
+hidden_dim: 64
+num_layers: 2
+heads: 8
+epochs: 500
+dropout: 0.5
+batch_size: 32
+lr: 0.01
+weight_decay: 0.005
+opt: adam
+opt_scheduler: none
+eval_every: 10

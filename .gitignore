@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# PyCharm
+.idea/
+
+# Datasets
+data/
+*.pt
+*.pkl
+
+# Results
+results/*.pth
+results/*.csv
+*.csv
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Distribution
+build/
+dist/
+*.egg-info/
